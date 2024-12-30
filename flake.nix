@@ -16,6 +16,7 @@
                 buildInputs = with pkgs; [
                     neovim
                     lua-language-server
+                    bashInteractive # requires for nvim term
                 ];
 
                 # Define shell setup actions
