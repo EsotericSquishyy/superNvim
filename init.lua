@@ -5,6 +5,13 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.list = true
+vim.opt.listchars = {
+  -- eol = "↵",
+  trail = "·",
+  tab = ">-",
+  nbsp = "␣"
+}
 
 -- Leaders
 vim.g.mapleader = " "
@@ -19,6 +26,7 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>")
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
+-- Mini-Term
 vim.api.nvim_create_autocmd("TermOpen", {
   group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
   callback = function()
@@ -52,4 +60,6 @@ vim.keymap.set("n", "<leader>tr", function()
   vim.fn.chansend(job_id, { current_command .. "\r\n" })
 end)
 
+-- Plugin Binds
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")
+vim.keymap.set("n", "<leader>tt", "<cmd>Floaterminal<CR>")
