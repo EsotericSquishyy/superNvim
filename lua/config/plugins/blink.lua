@@ -6,14 +6,14 @@ return {
   version = '*',
 
   opts = {
-    keymap = { preset = 'default' },
+    keymap = { preset = 'super-tab' },
 
     appearance = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = 'mono'
     },
 
-    signature = { enabled = true };
+    signature = { enabled = true },
 
     snippets = {
       expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
@@ -25,6 +25,7 @@ return {
       end,
       jump = function(direction) require('luasnip').jump(direction) end,
     },
+
     sources = {
       default = { 'lsp', 'path', 'luasnip', 'buffer' },
     },
