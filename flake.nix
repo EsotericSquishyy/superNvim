@@ -16,6 +16,7 @@
                 buildInputs = with pkgs; [
                     neovim
                     lua-language-server
+                    tinymist
                     bashInteractive # requires for nvim term
                 ];
 

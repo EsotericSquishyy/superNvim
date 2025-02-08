@@ -1,5 +1,6 @@
 return {
   {
+    -- Using snacks instead
     "goolord/alpha-nvim",
     enabled = false,
     dependencies = { 'echasnovski/mini.icons' },

@@ -14,7 +14,16 @@ return {
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+
       require("lspconfig").lua_ls.setup { capabilites = capabilities }
+      require("lspconfig")["tinymist"].setup {
+        capabilites = capabilities,
+        settings = {
+          formatterMode = "typstyle",
+          exportPdf = "onType",
+          semanticTokens = "disable"
+        }
+      }
 
       vim.keymap.set("n", "<leader>F", function() vim.lsp.buf.format() end)
       -- vim.api.nvim_create_autocmd('LspAttach', {

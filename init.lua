@@ -1,5 +1,3 @@
-require("config.lazy")
-
 -- General Config
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -12,15 +10,27 @@ vim.opt.listchars = {
   tab = ">-",
   nbsp = "␣"
 }
+vim.opt.signcolumn = "number" -- Stops lsp warning from moving numbers
+vim.opt.scrolloff = 7
+vim.opt.swapfile = false
 
 -- Leaders
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.opt.termguicolors = true
+require("config.lazy")
+
 -- Lua execution
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
 vim.keymap.set("n", "<leader>x", ":.lua<CR>")
 vim.keymap.set("v", "<leader>x", ":lua<CR>")
+
+-- Movement
+vim.keymap.set("n", "<C-S-H>", ":wincmd H<CR>", { silent = true })
+vim.keymap.set("n", "<C-S-J>", ":wincmd J<CR>", { silent = true })
+vim.keymap.set("n", "<C-S-K>", ":wincmd K<CR>", { silent = true })
+vim.keymap.set("n", "<C-S-L>", ":wincmd L<CR>", { silent = true })
 
 -- Quickfix list
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
@@ -63,3 +73,4 @@ end)
 -- Plugin Binds
 vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 vim.keymap.set("n", "<leader>tt", "<cmd>Floaterminal<CR>")
+
