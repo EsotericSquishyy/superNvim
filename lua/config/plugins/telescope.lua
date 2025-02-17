@@ -4,9 +4,16 @@ return {
     tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        -- config = function()
+        --   require('telescope').load_extension('fzf')
+        -- end,
+      }
     },
     config = function()
+      require('telescope').load_extension('fzf')
       require('telescope').setup {
         pickers = {
           find_files = {
@@ -17,7 +24,6 @@ return {
           }
         }
       }
-      require('telescope').load_extension('fzf')
 
       vim.keymap.set("n", "<leader>fb", require('telescope.builtin').builtin) -- Find builtins
       vim.keymap.set("n", "<leader>fh", require('telescope.builtin').help_tags) -- Find help tags

@@ -15,8 +15,21 @@
             default = pkgs.mkShell rec {
                 buildInputs = with pkgs; [
                     neovim
-                    lua-language-server
+                    lazygit
+                    zathura # PDF viewer
+
+                    # Telescope
+                    fzf
+                    ripgrep
+
+                    # lsp deps
                     tinymist
+                    lua-language-server
+                    clang # lsp
+
+                    # For making dependencies
+                    gnumake
+
                     bashInteractive # requires for nvim term
                 ];
 
