@@ -1,12 +1,33 @@
 return {
   'saghen/blink.cmp',
-  -- dependencies = 'rafamadriz/friendly-snippets',
-  -- dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+  dependencies = {
+    "L3MON4D3/LuaSnip",
+    dependencies = "rafamadriz/friendly-snippets";
+    version = "v2.*",
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+      require("luasnip.loaders.from_lua").load({ paths = { vim.fn.stdpath 'config' .. '/snippets' } })
+
+      -- For debugging
+      -- vim.keymap.set({"i", "s"}, "<return>",
+      --   function()
+      --       if require("luasnip").expand_or_jumpable() then
+      --           require("luasnip").expand_or_jump()
+      --       end
+      --   end)
+
+      vim.api.nvim_set_keymap("i", "<C-n>", "<Plug>luasnip-next-choice", {})
+      vim.api.nvim_set_keymap("i", "<C-p>", "<Plug>luasnip-prev-choice", {})
+      vim.api.nvim_set_keymap("s", "<C-n>", "<Plug>luasnip-next-choice", {})
+      vim.api.nvim_set_keymap("s", "<C-p>", "<Plug>luasnip-prev-choice", {})
+    end,
+  },
 
   version = '*',
 
   opts = {
-    keymap = { preset = 'super-tab' },
+    keymap = { preset = 'default' },
 
     appearance = {
       use_nvim_cmp_as_default = true,
@@ -15,19 +36,10 @@ return {
 
     signature = { enabled = true },
 
-    snippets = {
-      expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-      active = function(filter)
-        if filter and filter.direction then
-          return require('luasnip').jumpable(filter.direction)
-        end
-        return require('luasnip').in_snippet()
-      end,
-      jump = function(direction) require('luasnip').jump(direction) end,
-    },
+    snippets = { preset = 'luasnip' },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer'},
     },
   },
 }
