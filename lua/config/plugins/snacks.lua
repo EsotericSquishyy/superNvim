@@ -1,7 +1,7 @@
 return {
   {
     "folke/snacks.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
       dashboard = {}
     }

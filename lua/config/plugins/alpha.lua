@@ -2,7 +2,7 @@ return {
   {
     -- Using snacks instead
     "goolord/alpha-nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { 'echasnovski/mini.icons' },
     config = function()
       local startify = require("alpha.themes.startify")
