@@ -43,12 +43,6 @@ return {
   },
 
   {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    config = true
-  },
-
-  {
     "kdheepak/lazygit.nvim",
     lazy = true,
     cmd = {
