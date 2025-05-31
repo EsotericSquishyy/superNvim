@@ -71,6 +71,7 @@ return {
           'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
           'SignColumn', 'CursorLine', 'CursorLineNr', 'StatusLine', 'StatusLineNC',
           'EndOfBuffer',
+          'TabLine', 'TabLineFill', 'TabLineSel',
         },
         extra_groups = {},
         exclude_groups = {},
